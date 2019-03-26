@@ -1,0 +1,46 @@
+# Welcome to serverless. Read the docs
+# https://serverless.com/framework/docs/
+
+# Serverless.yml is the configuration the CLI
+# uses to deploy your code to your provider of choice
+
+# The `service` block is the name of the service
+service: serverless-hello-world
+
+# The `provider` block defines where your service will be deployed
+provider:
+  name: aws
+  runtime: python3.6
+
+# The `functions` block defines what code to deploy
+functions:
+  helloWorld:
+    handler: handler.setect
+    layers:
+      - {Ref: PythonRequirementsLambdaLayer}
+    # The `events` block defines how to trigger the handler.helloWorld code
+    events:
+      - http:
+          path: detect
+          method: get
+          cors: true
+
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    noDeploy:
+      - scipy
+      - matplotlib
+      - mpl_toolkits
+    slim: true
+    slimPatternsAppendDefaults: false
+    slimPatterns:
+      - "**/*.egg-info*"
+      - "**/docs*"
+      - "**/*.py[c|o]"
+      - "**/__pycache__*"
+      - "**/*.dist-info*"
+    strip: false
+    layer: true
