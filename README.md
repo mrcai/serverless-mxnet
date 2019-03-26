@@ -1,11 +1,14 @@
 # serverless-mxnet
 
-An attempt to get mxnet 1.4.0 running on lambda with gluon 0.3.0
+MXNet 1.4.0 running on lambda with Gluon 0.3.0
 
-This project uses serverless-python-requirements to install mxnet and gluon and spit the requirements into a layer to overcome lambda size limits.
+The project is setup to use ssd_512_mobilenet1.0_voc for object detection
 
-```hadler.py``` import both libraries and then returns a string message.
+## Deploy
 
-Currently the imports fail
+```serverless deploy```
 
-```Unable to import module 'handler': /opt/python/PIL/_imaging.cpython-36m-x86_64-linux-gnu.so: ELF load command address/offset not properly aligned```
+## Invoke
+
+```serverless invoke -f detect --data '{"url": "https://postcardsfromtomandliz.files.wordpress.com/2013/07/brussels-street-walkers.jpg"}'```
+

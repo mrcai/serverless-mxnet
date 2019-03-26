@@ -2,8 +2,7 @@ try:
   import unzip_requirements
 except ImportError:
   pass
-  
-import json
+
 import wget
 
 from gluoncv.data.transforms.presets.ssd import load_test
@@ -26,7 +25,7 @@ def detect(event, context):
   if not url:
     response = {
       "statusCode": 500,
-      "body": json.dumps("Please specify a url")
+      "body": "Please specify a url"
     }
     return response
 
@@ -56,7 +55,7 @@ def detect(event, context):
 
   response = {
       "statusCode": 200,
-      "body": json.dumps(body)
+      "body": body
   }
 
   return response

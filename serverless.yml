@@ -5,7 +5,7 @@
 # uses to deploy your code to your provider of choice
 
 # The `service` block is the name of the service
-service: serverless-hello-world
+service: serverless-mxnet
 
 # The `provider` block defines where your service will be deployed
 provider:
@@ -14,7 +14,7 @@ provider:
 
 # The `functions` block defines what code to deploy
 functions:
-  helloWorld:
+  detect:
     handler: handler.detect
     # The `events` block defines how to trigger the handler.helloWorld code
     events:
