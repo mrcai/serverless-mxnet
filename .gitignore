@@ -8,3 +8,5 @@ jspm_packages
 package-lock.json
 
 .vscode
+
+.requirements.zip

@@ -15,9 +15,7 @@ provider:
 # The `functions` block defines what code to deploy
 functions:
   helloWorld:
-    handler: handler.setect
-    layers:
-      - {Ref: PythonRequirementsLambdaLayer}
+    handler: handler.detect
     # The `events` block defines how to trigger the handler.helloWorld code
     events:
       - http:
@@ -35,12 +33,5 @@ custom:
       - matplotlib
       - mpl_toolkits
     slim: true
-    slimPatternsAppendDefaults: false
-    slimPatterns:
-      - "**/*.egg-info*"
-      - "**/docs*"
-      - "**/*.py[c|o]"
-      - "**/__pycache__*"
-      - "**/*.dist-info*"
     strip: false
-    layer: true
+    zip: true
