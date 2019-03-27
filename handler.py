@@ -7,14 +7,11 @@ import wget
 
 from gluoncv.data.transforms.presets.ssd import load_test
 from gluoncv.model_zoo import get_model
-import mxnet
-
-ctx = mxnet.cpu()
 
 # use mobilenet because it's small. lambda only has 512mb of space which isn't big enough
 # to download ssd or frcnn models and unzip them. hosting them on s3 unzipped is probably
 # a solution
-ssdnet =  get_model('ssd_512_mobilenet1.0_voc', pretrained=True, ctx=ctx, root='/tmp/models')
+ssdnet =  get_model('ssd_512_mobilenet1.0_voc', pretrained=True, root='/tmp/models')
 score_threshold = 0.5
 
 def detect(event, context):
