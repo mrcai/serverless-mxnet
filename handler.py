@@ -40,7 +40,7 @@ def detect(event, context):
   for i in range(len(scores[0])):
       if float(scores[0][i].asnumpy().tolist()[0]) > score_threshold:
         results.append({
-          "class": int(classes[0][i].asnumpy().tolist()[0]),
+          "class": ssdnet.classes[int(classes[0][i].asnumpy().tolist()[0])],
           "score": float(scores[0][i].asnumpy().tolist()[0]),
           "bbox": bbox[0][i].asnumpy().tolist()
         })
