@@ -28,10 +28,4 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: true
-    noDeploy:
-      - scipy
-      - matplotlib
-      - mpl_toolkits
-    slim: true
-    strip: false
     zip: true
