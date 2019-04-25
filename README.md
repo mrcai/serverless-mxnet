@@ -6,7 +6,10 @@ The project is setup to use ssd_512_mobilenet1.0_voc for object detection
 
 ## Deploy
 
-```serverless deploy```
+```
+npm install
+serverless deploy
+```
 
 ## Invoke
 
